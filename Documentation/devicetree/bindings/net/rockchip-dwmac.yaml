@@ -25,6 +25,7 @@ select:
           - rockchip,rk3368-gmac
           - rockchip,rk3399-gmac
           - rockchip,rk3528-gmac
+          - rockchip,rk3562-gmac
           - rockchip,rk3568-gmac
           - rockchip,rk3576-gmac
           - rockchip,rk3588-gmac
@@ -50,7 +51,11 @@ properties:
               - rockchip,rv1108-gmac
       - items:
           - enum:
+<<<<<<< HEAD
               - rockchip,rk3528-gmac
+=======
+              - rockchip,rk3562-gmac
+>>>>>>> c3d66075df8a... dt-bindings: net: Add support for rk3562 dwmac
               - rockchip,rk3568-gmac
               - rockchip,rk3576-gmac
               - rockchip,rk3588-gmac
@@ -155,6 +160,22 @@ allOf:
           minItems: 5
 
 unevaluatedProperties: false
+
+allOf:
+  - $ref: snps,dwmac.yaml#
+  - if:
+      properties:
+        compatible:
+          contains:
+            const: rockchip,rk3562-gmac
+    then:
+      properties:
+        clocks:
+          minItems: 4
+    else:
+      properties:
+        clocks:
+          minItems: 5
 
 examples:
   - |
