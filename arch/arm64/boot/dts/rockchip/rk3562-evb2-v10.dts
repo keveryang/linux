@@ -17,6 +17,7 @@
 	compatible = "rockchip,rk3562-evb2-v10", "rockchip,rk3562";
 
 	chosen: chosen {
+		bootargs = "earlycon=uart8250,mmio32,0xff210000, root=PARTUUID=614e0000-0000 rootwait";
 		stdout-path = "serial0:1500000n8";
 	};
 
